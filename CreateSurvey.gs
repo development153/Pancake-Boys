@@ -44,7 +44,7 @@ function createPancakeSurvey() {
 
   form.addPageBreakItem().setTitle('Survey giveaway (optional)');
   form.addTextItem().setTitle('Enter your email to enter our survey giveaway for a full bottle of our favorite buttermilk syrup, made by Flap Jack Drizzle')
-    .setHelpText('Check out the syrup: flapjackdrizzle.net')
+    .setHelpText('Check out the syrup from Flap Jack Drizzle.')
     .setRequired(false)
     .setValidation(FormApp.createTextValidation().setHelpText('Enter a valid email address').requireTextIsEmail().build());
 
