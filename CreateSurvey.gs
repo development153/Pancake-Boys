@@ -19,9 +19,6 @@ function createPancakeSurvey() {
     form.addImageItem().setTitle(f[0]).setHelpText(f[1]).setImage(blob).setAlignment(FormApp.Alignment.CENTER).setWidth(500);
   });
 
-  form.addCheckboxItem().setTitle('Which of these have you actually tasted?')
-    .setChoiceValues(names.concat(["None yet, I'm going off the photos"])).setRequired(true);
-
   form.addMultipleChoiceItem().setTitle('Which flavor would you order first?')
     .setChoiceValues(names).setRequired(true);
 
@@ -38,25 +35,20 @@ function createPancakeSurvey() {
   form.addTextItem().setTitle('How much do you think one plate costs us to make? ($)').setRequired(true).setValidation(num);
 
   form.addPageBreakItem().setTitle('Make it better');
-  form.addParagraphTextItem().setTitle('If you could change or add one thing to make these a must-buy, what would it be?');
-  form.addCheckboxItem().setTitle('Which of these would make you more likely to buy?')
-    .setChoiceValues(['Bigger portion', 'More toppings or drizzle options', 'Lower price', 'A drink combo (cocoa, milk, coffee)', 'Dairy-free or gluten-free option', 'A savory option', 'Rotating seasonal flavors'])
-    .showOtherOption(true);
+  form.addParagraphTextItem().setTitle('If you could change or add one thing to make these a must-buy, what would it be?').setRequired(true);
   form.addCheckboxItem().setTitle('Where would you most want to get Pancake Boys?')
     .setChoiceValues(['Pop-up on or near campus', 'Catering for my event or party', 'Farmers market', 'Late-night stand', 'Delivery'])
     .showOtherOption(true);
-  form.addScaleItem().setTitle('How likely are you to hire us to cater an event (party, wedding, club, ward activity)?')
-    .setBounds(0, 10).setLabels('Not likely', 'Definitely');
+  form.addScaleItem().setTitle('How likely would you be to refer us to a friend for a catering event?')
+    .setBounds(0, 10).setLabels('Not likely', 'Extremely likely').setRequired(true);
 
-  form.addPageBreakItem().setTitle('About you (optional)');
-  form.addMultipleChoiceItem().setTitle('How did you hear about Pancake Boys?')
-    .setChoiceValues(['Instagram', 'TikTok', 'A friend', 'An event we served', 'Our website']).showOtherOption(true);
-  form.addMultipleChoiceItem().setTitle('Age range')
-    .setChoiceValues(['Under 18', '18-24', '25-34', '35-44', '45+']);
-  form.addTextItem().setTitle('Want to hear about pop-ups and deals? Drop your email.')
-    .setValidation(FormApp.createTextValidation().requireTextIsEmail().build());
+  form.addPageBreakItem().setTitle('Survey giveaway (optional)');
+  form.addTextItem().setTitle('Enter your email to enter our survey giveaway for a full bottle of our favorite buttermilk syrup, made by Flap Jack Drizzle')
+    .setHelpText('Check out the syrup: flapjackdrizzle.net')
+    .setRequired(false)
+    .setValidation(FormApp.createTextValidation().setHelpText('Enter a valid email address').requireTextIsEmail().build());
 
-  form.setConfirmationMessage("Thanks! You just helped two pancake guys a ton. Follow us for pop-up dates.");
+  form.setConfirmationMessage("Thanks! You just helped two pancake guys a ton. If you entered the giveaway, we'll email the winner. Follow @pancak3boys for pop-up dates.");
   Logger.log('EDIT: ' + form.getEditUrl());
   Logger.log('SHARE: ' + form.getPublishedUrl());
 }
