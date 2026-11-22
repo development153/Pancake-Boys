@@ -1,5 +1,5 @@
 function createPancakeSurvey() {
-  var base = 'https://raw.githubusercontent.com/development153/Pancake-Boys/survey-assets/';
+  var base = 'https://raw.githubusercontent.com/development153/Pancake-Boys/refs/heads/survey-assets/';
   var form = FormApp.create('Pancake Boys Taste & Price Survey');
   form.setDescription("We're Pancake Boys, two guys from Provo making stuffed pancakes for events and pop-ups. Help us figure out our menu and pricing. It takes about 2 minutes and every answer helps!");
   form.setProgressBar(true);
